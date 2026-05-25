@@ -1,0 +1,13 @@
+name: SBOMit
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  sbomit:
+    uses: Marc-cn/sbomit-pipeline/.github/workflows/sbomit-reusable.yml@v1
+    with:
+      sbomit_server: "http://136.110.172.10"
+    secrets:
+      sbomit_token: ${{ secrets.SBOMIT_TOKEN }}
